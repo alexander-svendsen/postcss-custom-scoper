@@ -24,10 +24,12 @@
     "babel-preset-env": "^1.6.1",
     "eslint": "^4.18.2",
     "eslint-config-postcss": "^2.0.2",
-    "jest": "^22.4.2"
+    "jest": "^22.4.2",
+    "prettier": "1.11.1"
   },
   "scripts": {
-    "test": "jest && eslint *.js"
+    "test": "jest && eslint *.js",
+    "prettier": "prettier --write --single-quote '{src,test}/**/*.js'"
   },
   "eslintConfig": {
     "extends": "eslint-config-postcss/es5",
