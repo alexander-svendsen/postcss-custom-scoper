@@ -7,3 +7,11 @@ blee {
 }
 "
 `;
+
+exports[`Basic functionality should work 1`] = `
+"
+blee { 
+  color: yellow
+}
+"
+`;

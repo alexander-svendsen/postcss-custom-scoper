@@ -28,7 +28,7 @@
     "prettier": "1.11.1"
   },
   "scripts": {
-    "test": "jest && eslint *.js",
+    "test": "jest -u && eslint *.js",
     "prettier": "prettier --write --single-quote '{src,test}/**/*.js'"
   },
   "eslintConfig": {

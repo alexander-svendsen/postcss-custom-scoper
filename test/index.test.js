@@ -1,10 +1,12 @@
-import { run, runAndExpectResult, compareFixtureWithSnapshot } from './helpers';
+import { run, runAndExpectResult, compareFixtureWithSnapshot } from "./helpers";
 
-it('Basic functionality', () => {
-    compareFixtureWithSnapshot('base.css');
-});
+describe("Basic functionality", () => {
+    it("should work", () => {
+        compareFixtureWithSnapshot("base.css");
+    });
 
-it('', () => {
-    const { css } = run('.foo { color: yellow }');
-    expect(css).toEqual('blee { color: yellow }');
+    it("", () => {
+        const { css } = run(".foo { color: yellow }");
+        expect(css).toEqual("blee { color: yellow }");
+    });
 });
