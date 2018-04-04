@@ -54,7 +54,6 @@ var output = postcss().use(
     })
 ).process(cssFile);
 
-//postcss([ require('postcss-custom-scoper') ])
 ```
 
 See [PostCSS] docs for examples for your environment.
