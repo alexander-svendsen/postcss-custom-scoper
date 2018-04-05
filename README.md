@@ -14,17 +14,15 @@
 [![Build Status][ci-img]][ci]
 [![codecov][codecov-img]][codecov]
 
-```css
-.foo {
-    /* Input example */
-}
-```
+## Installation
 
-```css
-.foo {
-    /* Output example */
-}
-```
+Before using the plugin, make sure to have installed the [PostCSS] before:
+
+`npm install postcss`
+
+After installing postcss you can install the plugin:
+
+`npm install postcss-custom-scoper`
 
 ## Usage
 
@@ -34,26 +32,54 @@ var postcss = require('postcss'),
 
 var cssFile = fs.readFileSync('path/to/file.css',  'utf-8').toString();
 
-{
-    selectors: {
-      'something-to-match' : 'what-to-add',
-      '*' : 'matches-all'
-    }
-    selectors: [
-      {'something-to-match' : 'what-to-add'},
-      {'*' : 'matches-all'}
-    ],
-    scope: 'added_to_everything_except_ignore'
-    ignore: [ /regex-to-match/, '.class-to-ignore', '#id-to-ignore' ]
-}
-
-var output = postcss().use(
+var output1 = postcss().use(
     scoper({
-        scope: 'namespace'
-        ignore: [ /regex-to-match/, '.class-to-ignore', '#id-to-ignore' ]
+        {
+            //multiple matches
+            selectors: {
+              'something-to-match' : 'what-to-add',
+              '*' : 'matches-all'
+            }
+            ignore: [ /regex-to-match/, '.class-to-ignore', '#id-to-ignore' ]
+        }
     })
 ).process(cssFile);
 
+// or
+
+var output2 = postcss().use(
+    scoper({
+        {
+            //first match used
+            selectors: [
+              {'something-to-match' : 'what-to-add'},
+              {'*' : 'matches-all'}
+            ],
+            ignore: [ /regex-to-match/, '.class-to-ignore', '#id-to-ignore' ]
+        }
+    })
+).process(cssFile);
 ```
 
 See [PostCSS] docs for examples for your environment.
+
+## Example
+
+```css
+/* Before */
+.foo {
+}
+```
+
+```css
+/* After */
+.foo {
+}
+```
+
+## Credits
+
+Plugin inspired by:
+
+*   [postcss-selector-namespace](https://github.com/topaxi/postcss-selector-namespace) create by [topaxi](https://github.com/topaxi)
+*   [postcss-prefixer](https://github.com/marceloucker/postcss-prefixer) created by [marceloucker](https://github.com/marceloucker)
