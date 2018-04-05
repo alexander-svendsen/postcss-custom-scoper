@@ -1,12 +1,25 @@
-import { run, runAndExpectResult, compareFixtureWithSnapshot } from "./helpers";
+import { run, runAndExpectResult, compareFixtureWithSnapshot } from './helpers';
 
-describe("Basic functionality", () => {
-    it("should work", () => {
-        compareFixtureWithSnapshot("base.css");
+describe('Basic functionality', () => {
+    it('should work', () => {
+        compareFixtureWithSnapshot('base.css', {
+            selectors: {
+                '*': 'custom-scope'
+            }
+        });
     });
 
-    it("", () => {
-        const { css } = run(".foo { color: yellow }");
-        expect(css).toEqual("blee { color: yellow }");
+    it('should do nothing if not properly configured', () => {
+        compareFixtureWithSnapshot('base.css');
+    });
+
+    it('should work with more advanced options', () => {
+        compareFixtureWithSnapshot('base.css', {
+            selectors: {
+                '.a': 'custom-scope',
+                '*': 'scope-for-everything'
+            },
+            ignore: ['#a']
+        });
     });
 });

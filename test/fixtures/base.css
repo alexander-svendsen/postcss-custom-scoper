@@ -1,4 +1,44 @@
+/* root level */
+:root {
+  color: blue;
+}
 
-.foo { 
+/* all selector */
+* {
+  color: black
+}
+
+/* toplevel pseudo */
+:hover {
+  color: red;
+}
+
+/* toplevel element */
+div {
+  display: block;
+}
+
+/* toplevel class */
+.a {
   color: yellow
+}
+
+/* toplevel id */
+#a {
+  color: yellow
+}
+
+/* multiple classes */
+.b, .c {
+  color: black;
+}
+
+/* not */
+:not(.b, .c) {
+  color: purple;
+}
+
+/* attribute selector */
+[class*="ab"], [class^="ac"] {
+    display: block;
 }

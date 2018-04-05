@@ -1,17 +1,145 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Basic functionality 1`] = `
-"
-blee { 
+exports[`Basic functionality should do nothing if not properly configured 1`] = `
+"/* root level */
+:root {
+  color: blue;
+}
+
+/* all selector */
+* {
+  color: black
+}
+
+/* toplevel pseudo */
+:hover {
+  color: red;
+}
+
+/* toplevel element */
+div {
+  display: block;
+}
+
+/* toplevel class */
+.a {
   color: yellow
+}
+
+/* toplevel id */
+#a {
+  color: yellow
+}
+
+/* multiple classes */
+.b, .c {
+  color: black;
+}
+
+/* not */
+:not(.b, .c) {
+  color: purple;
+}
+
+/* attribute selector */
+[class*=\\"ab\\"], [class^=\\"ac\\"] {
+    display: block;
 }
 "
 `;
 
 exports[`Basic functionality should work 1`] = `
-"
-blee { 
+"/* root level */
+blee {
+  color: blue;
+}
+
+/* all selector */
+blee {
+  color: black
+}
+
+/* toplevel pseudo */
+blee {
+  color: red;
+}
+
+/* toplevel element */
+blee {
+  display: block;
+}
+
+/* toplevel class */
+blee {
   color: yellow
+}
+
+/* toplevel id */
+blee {
+  color: yellow
+}
+
+/* multiple classes */
+blee, blee {
+  color: black;
+}
+
+/* not */
+blee {
+  color: purple;
+}
+
+/* attribute selector */
+blee, blee {
+    display: block;
+}
+"
+`;
+
+exports[`Basic functionality should work with more advanced options 1`] = `
+"/* root level */
+blee {
+  color: blue;
+}
+
+/* all selector */
+blee {
+  color: black
+}
+
+/* toplevel pseudo */
+blee {
+  color: red;
+}
+
+/* toplevel element */
+blee {
+  display: block;
+}
+
+/* toplevel class */
+blee {
+  color: yellow
+}
+
+/* toplevel id */
+blee {
+  color: yellow
+}
+
+/* multiple classes */
+blee, blee {
+  color: black;
+}
+
+/* not */
+blee {
+  color: purple;
+}
+
+/* attribute selector */
+blee, blee {
+    display: block;
 }
 "
 `;
