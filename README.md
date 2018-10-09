@@ -1,4 +1,4 @@
-# PostCSS Custom Scoper
+# PostCSS Custom Scoper [WIP]
 
 [PostCSS] plugin that adds custom scopes to selectors.
 
